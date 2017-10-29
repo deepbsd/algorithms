@@ -14,6 +14,7 @@ function binarySearch(array, value, start, end) {
 
     console.log(start, end);
     if (item == value) {
+        console.log('Secret number is ',item);
         return index;
     }
     else if (item < value) {
@@ -24,3 +25,4 @@ function binarySearch(array, value, start, end) {
     }
 };
 
+module.exports = binarySearch;
