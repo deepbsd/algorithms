@@ -17,7 +17,6 @@ function swap(array, i, j) {
     array[j] = tmp;
 };
 
-// var starttime = Date.now();
 
 function quickSort(array, start=0, end=array.length) {
     start = start;
@@ -28,8 +27,7 @@ function quickSort(array, start=0, end=array.length) {
     const middle = partition(array, start, end);
     array = quickSort(array, start, middle);
     array = quickSort(array, middle + 1, end);
-    // let endtime = Date.now();
-    // console.log('Quick sorted in '+(endtime-starttime)+' milliseconds!');
+
     return array;
 };
 

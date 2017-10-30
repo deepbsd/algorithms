@@ -21,7 +21,6 @@ function merge(left, right, array) {
     return array;
 };
 
-//let start = Date.now();
 
 function mergeSort(array) {
     if (array.length <= 1) {  
@@ -35,8 +34,6 @@ function mergeSort(array) {
     left = mergeSort(left);
     right = mergeSort(right);   
 
-    //var end = Date.now();
-    //console.log('Merge sorted in '+(end-start)+' milliseconds!'); 
     return merge(left, right, array);
 };
 

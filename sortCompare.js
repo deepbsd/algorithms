@@ -1,3 +1,8 @@
+/*
+    This app simply tests the time performance of three sorting algorithms in 
+    separate files: bubleSort.js, mergeSort.js, and quickSort.js. 
+*/
+
 var BS = require('./bubbleSort');
 var MS = require('./mergeSort');
 var QS = require('./quickSort');
