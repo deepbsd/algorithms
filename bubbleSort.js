@@ -19,7 +19,7 @@ function bubbleSort(array) {
         return bubbleSort(array);
     }
     let end = Date.now();
-    console.log('Bubble sorted array in '+(end-start)+' milliseconds!');
+    //console.log('Bubble sorted array in '+(end-start)+' milliseconds!');
     return array;
 };
 
