@@ -1,14 +1,29 @@
 // Search Algorithm function questions
 
-// Assumes {key: price val: date}
+// Assumes {key: price value: date}
 function findBuySellDates(tree){
-    let lowest = findLeftLeaf(){
 
+    function findLeftLeaf(tree){
+        if (!tree.left){
+            return tree
+        } else {
+            return findLeftLeaf(tree)
+        }
     }
-    let highest = findRightLeaf(){
 
+    function findRightLeaf(tree){
+        if (!tree.right){
+            return tree
+        } else {
+            return findRightLeaf(tree)
+        }
     }
 
+    let lowest = findLeftLeaf(tree);
+    let highest = findRightLeaf(tree);
+
+    //return `BUY: ${lowest.value} at ${lowest.key}  SELL: ${highest.value} at ${highest.key} for profit of ${highest.key - lowest.key}`
+    return `BUY: ${lowest} SELL: ${highest}`
 }
 
 
@@ -34,4 +49,4 @@ function timeIt(){
 
 }
 
-module.exports = {findMax, timeIt}
+module.exports = {findMax, timeIt, findBuySellDates}
