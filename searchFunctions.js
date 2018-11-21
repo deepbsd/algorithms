@@ -1,29 +1,28 @@
 // Search Algorithm function questions
 
 // Assumes {key: price value: date}
-function findBuySellDates(tree){
+function findBuySellDates(bst){
 
     function findLeftLeaf(tree){
         if (!tree.left){
-            return tree
+            return tree;
         } else {
-            return findLeftLeaf(tree)
+            return findLeftLeaf(tree.left)
         }
     }
 
     function findRightLeaf(tree){
         if (!tree.right){
-            return tree
+            return tree;
         } else {
-            return findRightLeaf(tree)
+            return findRightLeaf(tree.right)
         }
     }
 
-    let lowest = findLeftLeaf(tree);
-    let highest = findRightLeaf(tree);
+    let lowest = findLeftLeaf(bst);
+    let highest = findRightLeaf(bst);
 
-    //return `BUY: ${lowest.value} at ${lowest.key}  SELL: ${highest.value} at ${highest.key} for profit of ${highest.key - lowest.key}`
-    return `BUY: ${lowest} SELL: ${highest}`
+    return `BUY: ${lowest.value} at ${lowest.key}  SELL: ${highest.value} at ${highest.key} for profit of ${highest.key - lowest.key}`
 }
 
 
