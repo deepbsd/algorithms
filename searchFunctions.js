@@ -1,5 +1,6 @@
 // Search Algorithm function questions
 
+// This is the Buy Sell Date problem...
 // Assumes {key: price value: date}
 function findBuySellDates(bst){
 
@@ -25,6 +26,18 @@ function findBuySellDates(bst){
     return `BUY: ${lowest.value} at ${lowest.key}  SELL: ${highest.value} at ${highest.key} for profit of ${highest.key - lowest.key}`
 }
 
+// This is the Egg Drop Problem...
+// x = number of drops
+function eggDrop(numOfEggs, numOfFloors){
+    // let x = (x + (x - 1) -1) - (x + 1) + 1 + 2  // same as x(x+1)/2  floors.  find min val for k floors such that x(x+1)/2 >= k.
+    // this is the same as x = (-1 + (1+8k)**0.5)/2
+    let e = numOfEggs, k = numOfFloors;
+    let x = (-1 + (1+8*k)**0.5)/e;  // is the divisor always 2 or the number of eggs???  Not sure here.
+    return parseInt(x, 10);
+}
+
+
+
 
 let arr = []
 for (let n=0; n<5000; n++){
@@ -48,4 +61,4 @@ function timeIt(){
 
 }
 
-module.exports = {findMax, timeIt, findBuySellDates}
+module.exports = {findMax, timeIt, findBuySellDates, eggDrop}
