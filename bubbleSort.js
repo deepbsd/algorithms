@@ -7,6 +7,7 @@ function swap(array, i, j) {
 
 function bubbleSort(array) {
     let swaps = 0;
+
     for (let i=0; i<array.length - 1; i++) {
         if (array[i] > array[i + 1]) {
             swap(array, i, i + 1);
@@ -17,9 +18,17 @@ function bubbleSort(array) {
     if (swaps > 0) {
         return bubbleSort(array);
     }
-    let end = Date.now();
 
     return array;
 };
 
-module.exports = bubbleSort;
+function genArr(){
+    arr = [];
+    for (let n=0; n<10000; n++){
+        let num = Math.floor(Math.random()*10000);
+        arr.push(num);
+    }
+    return arr;
+}
+
+module.exports = {bubbleSort,swap,genArr};
