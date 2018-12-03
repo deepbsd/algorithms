@@ -1,7 +1,7 @@
 function partition(array, start, end) {
-    const pivot = array[end - 1];
+    const pivot = array[end - 1];   // this -1 is part of algorithm
     let j = start;
-    for (let i=start; i<end - 1; i++) {
+    for (let i=start; i<end - 1; i++) {      // this -1 is part of 0 count from array
         if (array[i] <= pivot) {
             swap(array, i, j);
             j++;

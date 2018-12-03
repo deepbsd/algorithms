@@ -3,10 +3,10 @@
     separate files: bubleSort.js, mergeSort.js, and quickSort.js. 
 */
 
-var BS = require('./bubbleSort');
-var MS = require('./mergeSort');
-var QS = require('./quickSort');
-var arr = [];
+let BS = require('./bubbleSort');
+let MS = require('./mergeSort');
+let QS = require('./quickSort');
+let arr = [];
 
 
 function resetArr(arr){
@@ -20,6 +20,7 @@ function resetArr(arr){
 
 
 function testSearch(arr, type, name){
+    console.log("type: ",typeof type)
     let start = Date.now();
     let newArr = resetArr(arr);
     let newTest = new type(newArr);
