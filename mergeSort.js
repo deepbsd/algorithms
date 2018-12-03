@@ -38,6 +38,4 @@ function mergeSort(array) {
 };
 
 
-
-
-module.exports = mergeSort;
+module.exports = {mergeSort,merge};

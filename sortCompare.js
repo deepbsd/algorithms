@@ -6,12 +6,11 @@
 let BS = require('./bubbleSort');
 let MS = require('./mergeSort');
 let QS = require('./quickSort');
-let arr = [];
 
 
-function resetArr(arr){
+function genArr(){
     arr = [];
-    for (var i=0; i<5000; i++){
+    for (var i=0; i<10000; i++){
         var n = Math.round(Math.random()*1000000+1);
         arr.push(n);
     }
@@ -20,15 +19,19 @@ function resetArr(arr){
 
 
 function testSearch(arr, type, name){
-    console.log("type: ",typeof type)
     let start = Date.now();
-    let newArr = resetArr(arr);
-    let newTest = new type(newArr);
+
+    if (type === 'bs'){ let newTest = new BS.bubbleSort(arr) }
+    if (type === 'ms'){ let newTest = new MS.mergeSort(arr) }
+    if (type === 'qs'){ let newTest = new QS.quickSort(arr) }
+
     let end = Date.now();
-    console.log(`${name} Sort completed in ${end-start} milliseconds!`);
+    let duration = end-start;
+
+    console.log(`${name} Sort completed in ${duration} milliseconds!`);
 }
 
 
-testSearch(arr, BS, 'Bubble');
-testSearch(arr, MS, 'Merge');
-testSearch(arr, QS, 'Quick');
+testSearch(genArr(), 'bs', 'Bubble');
+testSearch(genArr(), 'ms', 'Merge');
+testSearch(genArr(), 'qs', 'Quick');

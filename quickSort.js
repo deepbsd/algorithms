@@ -31,4 +31,4 @@ function quickSort(array, start=0, end=array.length) {
     return array;
 };
 
-module.exports = quickSort;
+module.exports = {quickSort,swap,partition};
