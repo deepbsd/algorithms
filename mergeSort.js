@@ -2,6 +2,8 @@ function merge(left, right, array) {
     let leftIndex = 0;
     let rightIndex = 0;
     let outputIndex = 0;
+
+
     while (leftIndex < left.length && rightIndex < right.length) {
         if (left[leftIndex] < right[rightIndex]) {
             array[outputIndex++] = left[leftIndex++];
