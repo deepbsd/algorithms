@@ -74,6 +74,8 @@ function quickSort(arr, start=0, end=arr.length){
     if (start>=end){ return arr; }
 
     const middle = partition(arr, start, end)
+
+    // Joining the two partitions here...
     arr = quickSort(arr, start, middle);
     arr = quickSort(arr, middle+1, end);
 
@@ -96,9 +98,70 @@ function partition(arr, start, end){
 }
 
 
+// *** Answers to Sorting Interview Questions
+function sortWithMinMax(arr, min, max){
+//     ???
+}
+
+//Write an algorithm to shuffle an array into a random order
+//in-place (i.e. without creating a new array).
+function shuffleArr(arr){
+    let newArr = [];
+    let randNum;
+    while(arr.length){
+        randNum = Math.floor(Math.random()*arr.length);
+        newArr.push(arr.splice(randNum-1,1).pop());
+    }
+    return newArr;
+}
+
+function shuffleInPlace(arr){
+    for (let i=0; i<arr.length; i++){
+        let tmp = arr[Math.floor(Math.random()*arr.length)];
+        swap(arr, arr.indexOf(tmp), i)
+    }
+    return arr;
+}
 
 
+//Imagine that I gave you twenty books to sort in alphabetical order. How
+//would you go about it? Can you express this as an algorithm?
+
+let bookArr = [
+    "Grapes of Wrath",
+    "For Whom the Bell Tolls",
+    "Learning the Bash Shell",
+    "The Complete Wonder Woman Collection Staring Lynda Carter",
+    "Banacek, The Hidden Solutions",
+    "Mother Goose"
+]
+
+function bookSort(bookArr){
+    let sortedBooks = [];
+    let numVal;
+    let bookObj;
+    for (let i=0; i<bookArr.length; i++){
+        let title = bookArr[i];
+        numVal = 0;
+        bookObj = {};
+        for (let j=0; j<4; j++){
+            numVal = numVal+title.charCodeAt(j);
+            bookObj = {numVal: title};
+        }
+        while (sortedBooks.length<bookArr.length){
+            if (Object.keys(bookOjb) < bookArr[i]){
+                sortedBooks.splice(i,1,title)
+            }else {
+                sortedBooks.splice(i+1,1,title)
+            }
+        }
+    }
+    return sortedBooks;
+
+}
 
 
-module.exports = {swap,bubbleSort,merge,mergeSort,quickSort,partition}
+module.exports = {bookArr,bookSort,shuffleArr,shuffleInPlace,swap,bubbleSort,merge,mergeSort,quickSort,partition}
+
+
 
