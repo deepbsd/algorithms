@@ -139,22 +139,29 @@ let bookArr = [
 function bookSort(bookArr){
     let sortedBooks = [];
     let numVal;
+    let comparisonVal;
     let bookObj;
     for (let i=0; i<bookArr.length; i++){
-        let title = bookArr[i].toLowerCase();
-        numVal = 0;
+        let title = bookArr[i];
+        numVal = '';
+        comparisonVal = '';
         bookObj = {};
-        for (let j=0; j<4; j++){
-            numVal = title.charCodeAt(j);
+        //for (let j=0; j<4; j++){
+            //numVal = numVal+title.toLowerCase().charCodeAt(j);
+            numVal = numVal+title.toLowerCase().charCodeAt(0);  // j is undefined at this point
             bookObj[numVal] = title;
-            console.log('bookOfj: ',bookObj,' numVal: ',numVal);
-        }
-        while (sortedBooks.length<bookArr.length){
-            if (Object.keys(bookObj).pop() < bookArr[i]){
-                sortedBooks.splice(i,1,title)
-            }else {
-                sortedBooks.splice(i+1,1,title)
-            }
+            // this comparisonVal needs to be OF the last value in the bookArr array
+            //comparisonVal = comparisonVal + bookArr[bookArr.length-1].toLowerCase().charCodeAt(j);
+
+            //...once again 'j' is undefined at this point
+            comparisonVal = comparisonVal + bookArr[bookArr.length-1].toLowerCase().charCodeAt(0);
+            console.log('bookOfj: ',bookObj,' numVal: ',numVal,' comparisonVal: ',comparisonVal);
+        //}
+        
+        if ( parseInt(Object.keys(bookObj).pop(),10) < parseInt(bookArr[i], 10)){
+            sortedBooks.unshift(Object.values(bookObj).pop());
+        }else {
+            sortedBooks.push(Object.values(bookObj).pop());
         }
     }
     return sortedBooks;
