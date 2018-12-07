@@ -54,7 +54,7 @@ function merge(left, right, arr){
     }
 
     // These two for loops essentially 
-    // do a join of left and right arrays
+    // are a "join" of left and right arrays
     for (let i=leftIndex; i<left.length; i++){
         arr[outputIndex++] = left[i];
     }
@@ -67,4 +67,38 @@ function merge(left, right, arr){
 }
 
 
-module.exports = {swap, bubbleSort,merge,mergeSort}
+// *** Quick Sort
+function quickSort(arr, start=0, end=arr.length){
+    start = start;
+    end = end;
+    if (start>=end){ return arr; }
+
+    const middle = partition(arr, start, end)
+    arr = quickSort(arr, start, middle);
+    arr = quickSort(arr, middle+1, end);
+
+    return arr;
+}
+
+
+function partition(arr, start, end){
+    const pivot = arr[end-1];
+    let j = start;
+
+    for (let i=start; i<end-1; i++){
+        if (arr[i]<=pivot){
+            swap(arr, i, j);
+            j++;
+        }
+    }
+    swap(arr, end-1, j);
+    return j;
+}
+
+
+
+
+
+
+module.exports = {swap,bubbleSort,merge,mergeSort,quickSort,partition}
+
