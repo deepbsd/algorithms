@@ -141,15 +141,16 @@ function bookSort(bookArr){
     let numVal;
     let bookObj;
     for (let i=0; i<bookArr.length; i++){
-        let title = bookArr[i];
+        let title = bookArr[i].toLowerCase();
         numVal = 0;
         bookObj = {};
         for (let j=0; j<4; j++){
-            numVal = numVal+title.charCodeAt(j);
-            bookObj = {numVal: title};
+            numVal = title.charCodeAt(j);
+            bookObj[numVal] = title;
+            console.log('bookOfj: ',bookObj,' numVal: ',numVal);
         }
         while (sortedBooks.length<bookArr.length){
-            if (Object.keys(bookOjb) < bookArr[i]){
+            if (Object.keys(bookObj).pop() < bookArr[i]){
                 sortedBooks.splice(i,1,title)
             }else {
                 sortedBooks.splice(i+1,1,title)
