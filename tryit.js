@@ -53,6 +53,8 @@ function merge(left, right, arr){
         }
     }
 
+    // These two for loops essentially 
+    // do a join of left and right arrays
     for (let i=leftIndex; i<left.length; i++){
         arr[outputIndex++] = left[i];
     }
@@ -65,4 +67,4 @@ function merge(left, right, arr){
 }
 
 
-module.exports = {swap, bubbleSort}
+module.exports = {swap, bubbleSort,merge,mergeSort}
